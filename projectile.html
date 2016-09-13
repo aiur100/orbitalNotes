@@ -1,0 +1,203 @@
+<HTML>
+<head>
+	<title>Orbital Notes</title>
+	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<script>
+		//If you're reading this then you must be interested in how I did this.
+		//The answer is:  I did it with magic fairy sprinkles and copious amounts of red bull; red bull gives me wings
+		//and hallucinations. 
+		//I probably hate you.  If you use any of this javascript, make sure you acknowledge me.
+		//Christopher Rene Hill Cronenbold, is my super long name.
+		//This program is NOT even CLOSE to completion so stay tuned. 
+		//Forever angry, - Me.
+		
+		function sounds(sound)
+		{
+			var myAudio = new Audio(sound+'.mp3');
+			myAudio.play();
+			delete myAudio;
+		}
+			
+		
+		
+		//This is the note orb function.  It creates a an orb.
+		function noteOrb(tPoint,xPoint,yPoint,note,color)
+		{
+			
+			
+			
+			this.tPoint = tPoint;
+			this.xPoint = xPoint;
+			this.yPoint = yPoint;
+			this.note = note;
+			
+			
+			
+			//This is a function for listening for clicks.
+			
+			function register(xPos,yPos)
+			{
+				
+				alert("orb x: "+this.xPoint+" click x: "+xPos+"orb y: "+this.yPoint+" click y: "+yPos);
+				 //alert(this.xPointCoord + " " + this.yPointCoord);
+				 //printCoordinates(this.xPointCoord,this.xPoint);
+				 //alert("hello");
+				 if ((xPos >= (this.xPoint-20) && xPos <= (this.xPoint+20)) && (yPos >= (this.yPoint-60) && yPos <= (this.yPoint+60)))
+				 {
+					 printCoordinates(xPos,yPos);
+				 	//alert("hello");
+					 //delete this.drawOrb();
+				 }
+			}
+			
+			
+			
+			
+			
+			
+			
+			this.drawOrb = function()
+			{
+			/*
+			This is the object portion of the function. 
+			*/
+				this.canvas = document.getElementById('frame'),
+				this.c = this.canvas.getContext("2d");
+				
+				this.c.clearRect((this.xPoint-7), (this.yPoint-7), 17, 17);
+	
+					this.xPoint = Math.round(160*(Math.sin(this.tPoint)));
+					this.yPoint = Math.round(70*(Math.cos(this.tPoint)));
+					
+					this.xPoint = this.xPoint + 250;
+					this.yPoint = this.yPoint + 150;
+					
+					printCoordinates(this.xPoint,this.yPoint);
+					
+				if(this.xPoint == 409 && this.yPoint == 143)
+				{
+					sounds(this.note);
+				}
+					
+					this.tPoint = this.tPoint + 0.01;
+					
+				
+				this.c.fillStyle = color;
+					
+				this.c.fillRect(this.xPoint, this.yPoint, 10, 10);
+				
+				setTimeout(this.drawOrb.bind(this), 10);
+				//setTimeout('draw('+t+','+x+','+y+')', 1);
+			}
+			
+			this.coord = function(event)
+			{
+				 
+				 this.xPointCoord = (event.clientX - 300);
+				 this.yPointCoord = event.clientY;
+				 alert(this.xPointCoord+' '+this.xPoint);
+				 //register(this.xPointCoord,this.yPointCoord);
+				 
+			}
+			
+			this.clicks = document.getElementById('frame').addEventListener("mousedown",this.coord, false);
+			
+			
+			
+		}
+		
+		function show_coords(event)
+		{
+			var x=event.clientX;
+			var y=event.clientY;
+			alert("X coords: " + x + ", Y coords: " + y);
+		}
+		
+		function printCoordinates(x,y)
+		{
+			var canvas = document.getElementById('frame');
+			var ctx = canvas.getContext("2d");
+
+			ctx.font="18px Verdana";
+			ctx.fillStyle = 'black';
+			ctx.fillRect(10, 285, 490, 50);
+			
+			ctx.fillStyle = 'white';
+			ctx.fillText("coordinates: x ="+x+" y ="+y, 10, 300);
+			//var loopTimer = setTimeout('printCoordinates('+x+','+y+')', 10);
+		}
+		
+		
+		window.onload = function()
+		{
+			
+			//test(0,0);
+			//draw(0,0);
+			//onclick="orbs.coord(event);"
+		}			
+	
+	</script>
+	
+	<style>
+	
+		body 
+		{
+			background: #000000;
+			color: white;
+			font-family: 'arial', cursive;
+			font-size: 14px;
+		}
+		
+		#container 
+		{
+			width: 100%;
+			margin: auto;
+			text-align: center;
+		}
+	
+	</style>
+	<div class="container">
+	
+		<div id = "box" style="margin-left: 20%; margin-right: 45%;">
+		
+				<audio id="G">
+					<source src="G.mp3" type="audio/mpeg">
+				</audio>
+				
+				<audio id="D1">
+					<source src="D1.mp3" type="audio/mpeg">
+				</audio>
+				
+				<audio id="C">
+					<source src="C.mp3" type="audio/mpeg">
+				</audio>
+				<audio id="E">
+					<source src="E.mp3" type ="audio/mpeg">
+				</audio>
+			
+			<h1 style="text-align: center;">Orbital Notes<br></h1>
+			
+				<canvas id="frame" width="500" height="350" style="border: 1px solid;" >
+				
+					 GET GOOGLE CHROME
+				
+				</canvas>
+				<br>
+				Click a note and it will be put into orbit. (Multiple Allowed)
+				<br>
+				<input type="button" value=" G " onclick="orbs = new noteOrb(0,0,0,'G','red'); orbs.drawOrb();">
+				<input type="button" value=" D " onclick="orbs = new noteOrb(0,0,0,'D1','blue'); orbs.drawOrb();">
+				<input type="button" value=" C " onclick="orbs = new noteOrb(0,0,0,'C','white'); orbs.drawOrb();">
+				<input type="button" value=" A " onclick="orbs = new noteOrb(0,0,0,'E','yellow'); orbs.drawOrb();">
+		</div>
+	
+	</div>
+	
+	
+	
+</body>
+
+</HTML>

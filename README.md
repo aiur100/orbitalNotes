@@ -11,6 +11,10 @@ used to simulate simple orbits.
 The orbits are paired recorded piano sounds at specific intervals, in this way, creating a sort of musical-instrument.
 The buttons create notes that move in an elipsis and emit a tone at a particular point.
 
+### How to Play With It?
+
+Just open the file `projectile.html` in your browser.
+
 ### Development
 
 **Requirements:**

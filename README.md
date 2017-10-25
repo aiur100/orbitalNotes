@@ -8,7 +8,7 @@
 This is a fun little project using JavaScript and an HTML5 canvas, paired with some parametric equations
 used to simulate simple orbits. 
 
-The orbits are paired recorded piano sounds at specific intervals, in this way, creating a sort of musical-instrument.
+The orbits are paired with recorded piano sounds at specific intervals, in this way, creating a sort of musical-instrument.
 The buttons create notes that move in an elipsis and emit a tone at a particular point.
 
 ### How to Play With It?

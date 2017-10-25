@@ -7,7 +7,7 @@
  * @param sound
  */
 function sounds(sound) {
-    var myAudio = new Audio(sound+'.mp3');
+    var myAudio = new Audio("audio/"+sound+'.mp3');
     myAudio.play();
     delete myAudio;
 }

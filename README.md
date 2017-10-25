@@ -12,14 +12,15 @@ The orbits are paired recorded piano sounds at specific intervals, in this way, 
 The buttons create notes that move in an elipsis and emit a tone at a particular point.
 
 ### How to Play With It?
-
-Just open the file `projectile.html` in your browser.
-
-### Development
-
 **Requirements:**
 * npm and bower (latest versions of both)
 * Once this project is cloned on your machine, you can run [ `bower install` ]
+
+Finally, Just open the file `projectile.html` in your browser.
+
+### Development
+* See the **How to Play With It?** section, as you will need those same requirements.
+
 
 
 ### Libraries 

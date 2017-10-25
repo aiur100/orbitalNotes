@@ -1,10 +1,28 @@
-#Orbital Notes
+# Orbital Notes
 
-@Author Christopher R. Hill 
-chrishill9@gmail.com
+**Author**: Christopher R. Hill
 
-*This is a fun little project using JavaScript and an HTML5 canvas
-*The buttons create notes that move in an elipsis and emit a tone at a particular point.
+**Email**: chrishill9 [ AT ] gmail [ A-DOT ] com
+
+### Overview
+This is a fun little project using JavaScript and an HTML5 canvas, paired with some parametric equations
+used to simulate simple orbits. 
+
+The orbits are paired recorded piano sounds at specific intervals, in this way, creating a sort of musical-instrument.
+The buttons create notes that move in an elipsis and emit a tone at a particular point.
+
+### Development
+
+**Requirements:**
+* npm and bower (latest versions of both)
+* Once this project is cloned on your machine, you can run [ `bower install` ]
+
+
+### Libraries 
+* JQuery 
+* SweetAlert2
+* Bootstrap 
+
 
 
 

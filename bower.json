@@ -1,0 +1,26 @@
+{
+  "name": "orbitalNotes",
+  "homepage": "https://github.com/aiur100/orbitalNotes",
+  "authors": [
+    "chill <chill@redlineadvantage.com>"
+  ],
+  "description": "A project using the mathematics of orbits and sound to make music.",
+  "main": "projectile.html",
+  "keywords": [
+    "orbital"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "boostrap#^3.3.7",
+    "jquery": "^3.2.1",
+    "sweetalert2": "^6.11.0"
+  }
+}

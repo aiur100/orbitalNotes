@@ -1,0 +1,12 @@
+body {
+    background: #000000;
+    color: white;
+    font-family: 'arial', cursive;
+    font-size: 14px;
+}
+
+#container {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}

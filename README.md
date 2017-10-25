@@ -12,7 +12,7 @@ The orbits are paired with recorded piano sounds at specific intervals, in this 
 The buttons create notes that move in an elipsis and emit a tone at a particular point.
 
 ### How to Play With It?
-**Requirements:**
+**Requirements for quick library depency installation:**
 * npm and bower (latest versions of both)
 * Once this project is cloned on your machine, you can run [ `bower install` ]
 

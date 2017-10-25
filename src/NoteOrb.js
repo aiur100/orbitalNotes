@@ -15,6 +15,7 @@ var NoteOrb  = function(tPoint,xPoint,yPoint,note,color){
     this.xPoint = xPoint;
     this.yPoint = yPoint;
     this.note   = note;
+    this.speed  = 10;
     this.canvas = document.getElementById('frame');
 
     //This is a function for listening for clicks.
@@ -24,6 +25,10 @@ var NoteOrb  = function(tPoint,xPoint,yPoint,note,color){
             printCoordinates(xPos,yPos);
         }
     }
+
+    this.increaseSpeed = function(){
+        this.speed--;
+    };
     /**
      * Draws the orb on the screen.
      */
@@ -38,7 +43,7 @@ var NoteOrb  = function(tPoint,xPoint,yPoint,note,color){
         this.xPoint = this.xPoint + 250;
         this.yPoint = this.yPoint + 150;
 
-        printCoordinates(this.xPoint,this.yPoint);
+        //printCoordinates(this.xPoint,this.yPoint);
 
         if(this.xPoint == 409 && this.yPoint == 143) {
             sounds(this.note);
@@ -51,7 +56,7 @@ var NoteOrb  = function(tPoint,xPoint,yPoint,note,color){
 
         this.c.fillRect(this.xPoint, this.yPoint, 10, 10);
 
-        setTimeout(this.drawOrb.bind(this), 10);
+        setTimeout(this.drawOrb.bind(this), this.speed);
     };
 
 

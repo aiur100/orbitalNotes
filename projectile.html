@@ -2,43 +2,49 @@
 <head>
 	<title>Orbital Notes</title>
 	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="container">
-		<div id = "box" style="margin-left: 20%; margin-right: 45%;">
-		
-				<audio id="G">
-					<source src="G.mp3" type="audio/mpeg">
-				</audio>
-				
-				<audio id="D1">
-					<source src="D1.mp3" type="audio/mpeg">
-				</audio>
-				
-				<audio id="C">
-					<source src="C.mp3" type="audio/mpeg">
-				</audio>
-				<audio id="E">
-					<source src="E.mp3" type ="audio/mpeg">
-				</audio>
-			
-			<h1 style="text-align: center;">Orbital Notes<br></h1>
-			
-				<canvas id="frame" width="500" height="350" style="border: 1px solid;" >
-				
-					 GET GOOGLE CHROME
-				
-				</canvas>
-				<br>
-				Click a note and it will be put into orbit. (Multiple Allowed)
-				<br>
-				<input type="button" value=" G " onclick="orbs = new NoteOrb(0,0,0,'G','red'); orbs.drawOrb();">
-				<input type="button" value=" D " onclick="orbs = new NoteOrb(0,0,0,'D1','blue'); orbs.drawOrb();">
-				<input type="button" value=" C " onclick="orbs = new NoteOrb(0,0,0,'C','white'); orbs.drawOrb();">
-				<input type="button" value=" A " onclick="orbs = new NoteOrb(0,0,0,'E','yellow'); orbs.drawOrb();">
+<audio id="G">
+	<source src="G.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="D1">
+	<source src="D1.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="C">
+	<source src="C.mp3" type="audio/mpeg">
+</audio>
+<audio id="E">
+	<source src="E.mp3" type ="audio/mpeg">
+</audio>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel">
+					<div class="panel-heading">
+						<h1 class="display-1">Orbital Notes</h1>
+					</div>
+					<div class="panel-body">
+						<canvas id="frame" width="500px" height="325px" style="border: double;" class="col-lg-12"></canvas>
+					</div>
+					<div class="panel-footer">
+						<div class="btn-group btn-group-justified">
+							<input class="btn btn-info" type="button" value=" G " onclick="orbs = new NoteOrb(0,0,0,'G','red'); orbs.drawOrb();">
+							<input class="btn btn-info" type="button" value=" D " onclick="orbs = new NoteOrb(0,0,0,'D1','blue'); orbs.drawOrb();">
+							<input class="btn btn-info" type="button" value=" C " onclick="orbs = new NoteOrb(0,0,0,'C','white'); orbs.drawOrb();">
+							<input class="btn btn-info" type="button" value=" A " onclick="orbs = new NoteOrb(0,0,0,'E','yellow'); orbs.drawOrb();">
+						</div>
+						<div class="btn-group">
+							<button id="speed_up" class="btn btn-danger">Increase Speed</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	
 	</div>
 	
 	
@@ -47,9 +53,14 @@
 <script src="src/functions.js"></script>
 <script src="src/NoteOrb.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script>
 	$(document).ready(function(){
 		var Orb = new NoteOrb(0,0,0,'G','green');
+		Orb.drawOrb();
+		$("#speed_up").click(function(){
+			Orb.increaseSpeed();
+		})
 	});
 </script>
 </HTML>
